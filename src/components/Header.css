@@ -1,0 +1,25 @@
+.header-container {
+    padding: 16px;
+    background-color: blue;
+}
+
+.header-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.university-name {
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.office-name {
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: underline;
+}
