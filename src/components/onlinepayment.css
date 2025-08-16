@@ -1,0 +1,52 @@
+.payment-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  text-align: center;
+  background: #f9fbff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.payment-title {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #004b8d;
+}
+
+.payment-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.payment-btn {
+  display: block;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.payment-btn:hover {
+  opacity: 0.9;
+}
+
+.esewa {
+  background: #1ba548;
+}
+
+.khalti {
+  background: #5e338c;
+}
+
+.connectips {
+  background: black;
+}
+
+.close {
+    background-color: red;
+}

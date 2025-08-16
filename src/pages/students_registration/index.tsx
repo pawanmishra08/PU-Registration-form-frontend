@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./students_registration.css"; // Make sure to style similar to screenshot
 
-const Students_registration = () => {
+const StudentsRegistration = () => {
   const [formData, setFormData] = useState({
     first_name: "",
     middle_name: "",
@@ -282,8 +282,8 @@ const Students_registration = () => {
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
-    <Students_registration />
+    <StudentsRegistration />
   </React.StrictMode>
 );
 
-export default Students_registration;
+export default StudentsRegistration;

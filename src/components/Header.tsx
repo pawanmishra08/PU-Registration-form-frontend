@@ -11,9 +11,9 @@ const Header = () => {
                 <button className="header-button">Home</button>
             </div>
 
-            {/* center seection: logo + Titile */}
-            {/* <div className="header-title">
-                <img src="./images/purbanchal_logo.svg"
+            {/* center seection: logo + Titile
+             <div className="header-title">
+                <img src="https://en.wikipedia.org/wiki/Purbanchal_University"
                 alt="Purbanchal University Logo"
                 className="university-logo"
                 />
