@@ -42,6 +42,7 @@ const StudentsRegistration = () => {
       return [
         { value: "bit", label: "Bachelor in Information Technology (BIT)" },
         { value: "bca", label: "Bachelor in Computer Application (BCA)" },
+        { value: "AI", label: "Btech. in AI" },
         { value: "pgdca", label: "PGDCA" },
       ];
     } else if (formData.level === "master") {

@@ -4,7 +4,6 @@ import Applayout from './pages/applayout';
 import Students_registration from './pages/students_registration';
 import OnlinePayment from './components/onlinepayment';
 
-
 function App() {
   return (
 

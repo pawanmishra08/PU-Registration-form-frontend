@@ -36,13 +36,14 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1 className="exam-title">BIT Entrance Examination 2082</h1>
+      <h1 className="exam-title">IT Entrance Examination 2082</h1>
       <p className="exam-description">
         You can register for Entrance Examination after clicking{" "}
         <strong>Start Registration</strong> button below. <br />
         Before starting registration you should complete Online Banking Payment
         by clicking <strong>Online Payment</strong> button below.
       </p>
+      <p><strong>Candidates must pay before registration.</strong></p>
 
       <div className="button-group">
         <button
