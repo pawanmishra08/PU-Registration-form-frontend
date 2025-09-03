@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import "./students_registration.css"; // Make sure to style similar to screenshot
+import "./students_registration.css"; // Add CSS styles here
 
 const StudentsRegistration = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ const StudentsRegistration = () => {
     email: "",
     id_type: "",
     voucher_no: "",
+    voucher_image: null as File | null,
     phone: "",
     level: "",
     program: "",
@@ -21,13 +22,30 @@ const StudentsRegistration = () => {
     issued_district: "",
     passport_number: "",
     license_number: "",
+    photo: null as File | null,
+    tenth_marksheet: null as File | null,
+    tenth_character: null as File | null,
+    tenth_gpa: "",
+    tenth_year: "",
+    tenth_percentage: "",
+    eleventh_marksheet: null as File | null,
+    eleventh_character: null as File | null,
+    eleventh_gpa: "",
+    eleventh_year: "",
+    eleventh_percentage: "",
+    citizenship_front: null as File | null,
+    citizenship_back: null as File | null,
   });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, files } = e.target as HTMLInputElement;
+    if (files) {
+      setFormData((prev) => ({ ...prev, [name]: files[0] }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -93,6 +111,18 @@ const StudentsRegistration = () => {
           </div>
         </div>
 
+        {/* PP Size Photo */}
+        <div className="form-group">
+          <label>PP Size Photo *</label>
+          <input
+            type="file"
+            name="photo"
+            accept="image/*"
+            onChange={handleChange}
+            required
+          />
+        </div>
+
         {/* Voucher */}
         <div className="form-group">
           <label>Voucher No *</label>
@@ -102,6 +132,16 @@ const StudentsRegistration = () => {
             value={formData.voucher_no}
             onChange={handleChange}
             placeholder="Enter Voucher No"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Voucher Image *</label>
+          <input
+            type="file"
+            name="voucher_image"
+            accept="image/*,.pdf"
+            onChange={handleChange}
             required
           />
         </div>
@@ -222,54 +262,156 @@ const StudentsRegistration = () => {
           </select>
         </div>
 
-        {/* Conditional Fields */}
-        {formData.id_type === "citizenship" && (
-          <div className="form-group">
-            <label>Issued Date *</label>
+        {/* 10th Details */}
+        <h3 style={{ marginTop: "20px", textDecoration: "underline" }}>
+          10th Grade Details
+        </h3>
+        <div className="rectangle-box">
+          <div className="form-row">
+            <div>
+              <label>Marksheet *</label>
+              <input
+                type="file"
+                name="tenth_marksheet"
+                accept="image/*,.pdf"
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label>Character Certificate *</label>
+              <input
+                type="file"
+                name="tenth_character"
+                accept="image/*,.pdf"
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label>GPA *</label>
+              <input
+                type="text"
+                name="tenth_gpa"
+                value={formData.tenth_gpa}
+                onChange={handleChange}
+                placeholder="e.g. 3.6"
+                required
+              />
+            </div>
+            <div>
+              <label>Passed Year *</label>
+              <input
+                type="text"
+                name="tenth_year"
+                value={formData.tenth_year}
+                onChange={handleChange}
+                placeholder="YYYY"
+                required
+              />
+            </div>
+            <div>
+              <label>Percentage *</label>
+              <input
+                type="text"
+                name="tenth_percentage"
+                value={formData.tenth_percentage}
+                onChange={handleChange}
+                placeholder="e.g. 85%"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* 11th Details */}
+        <h3 style={{ marginTop: "20px", textDecoration: "underline" }}>
+          11th Grade Details
+        </h3>
+        <div className="rectangle-box">
+          <div className="form-row">
+            <div>
+              <label>Marksheet *</label>
+              <input
+                type="file"
+                name="eleventh_marksheet"
+                accept="image/*,.pdf"
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label>Character Certificate *</label>
+              <input
+                type="file"
+                name="eleventh_character"
+                accept="image/*,.pdf"
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label>GPA *</label>
+              <input
+                type="text"
+                name="eleventh_gpa"
+                value={formData.eleventh_gpa}
+                onChange={handleChange}
+                placeholder="e.g. 3.5"
+                required
+              />
+            </div>
+            <div>
+              <label>Passed Year *</label>
+              <input
+                type="text"
+                name="eleventh_year"
+                value={formData.eleventh_year}
+                onChange={handleChange}
+                placeholder="YYYY"
+                required
+              />
+            </div>
+            <div>
+              <label>Percentage *</label>
+              <input
+                type="text"
+                name="eleventh_percentage"
+                value={formData.eleventh_percentage}
+                onChange={handleChange}
+                placeholder="e.g. 80%"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Citizenship */}
+        <h3 style={{ marginTop: "20px", textDecoration: "underline" }}>
+          Citizenship Documents
+        </h3>
+        <div className="form-group" style={{ display: "flex", gap: "15px" }}>
+          <div>
+            <label>Citizenship (Front) *</label>
             <input
-              type="date"
-              name="issued_date"
-              value={formData.issued_date}
+              type="file"
+              name="citizenship_front"
+              accept="image/*"
               onChange={handleChange}
-              required
-            />
-            <label>Issued District *</label>
-            <input
-              type="text"
-              name="issued_district"
-              value={formData.issued_district}
-              onChange={handleChange}
-              placeholder="Enter Issued District"
               required
             />
           </div>
-        )}
-        {formData.id_type === "passport" && (
-          <div className="form-group">
-            <label>Passport Number *</label>
+          <div>
+            <label>Citizenship (Back) *</label>
             <input
-              type="text"
-              name="passport_number"
-              value={formData.passport_number}
+              type="file"
+              name="citizenship_back"
+              accept="image/*"
               onChange={handleChange}
-              placeholder="Enter Passport Number"
               required
             />
           </div>
-        )}
-        {formData.id_type === "license" && (
-          <div className="form-group">
-            <label>License Number *</label>
-            <input
-              type="text"
-              name="license_number"
-              value={formData.license_number}
-              onChange={handleChange}
-              placeholder="Enter License Number"
-              required
-            />
-          </div>
-        )}
+        </div>
 
         {/* Submit Button */}
         <button type="submit" className="submit-btn">
