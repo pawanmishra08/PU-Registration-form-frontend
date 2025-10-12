@@ -1,36 +1,48 @@
 import { useState } from "react";
-import "./Header.css";
+import img from '../images/pu_logo.png';
 
 const Header = () => {
-    const [isclicked, SetIsClicked] = useState(false);
+  const [activeNav, setActiveNav] = useState<string>("home");
 
-    return (
-        <div className="header-container">
-            {/* Left Section: Home Button */}
-            <div className="header-left">
-                <button className="header-button">Home</button>
-            </div>
+  return (
+    <header className="flex justify-between items-center bg-[#003366] text-white px-10 py-3 shadow-md relative">
+      {/* Left Section: Logo */}
+      <div className="flex items-center gap-3">
+        <img
+          src= {img}
+          alt="Purbanchal University Logo"
+          className="h-14 w-14 object-contain"
+        />
+      </div>
 
-            {/* center seection: logo + Titile
-             <div className="header-title">
-                <img src="https://en.wikipedia.org/wiki/Purbanchal_University"
-                alt="Purbanchal University Logo"
-                className="university-logo"
-                />
-            </div> */}
+      {/* Center Section: University Name + Office Name */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 text-center leading-tight flex flex-col">
+        <span className="text-lg font-bold">Purbanchal University</span>
+        <span className="text-sm text-gray-300">
+          Office of the Controller of Examinations, Biratnagar
+        </span>
+      </div>
 
-            {/* Center Section: Title */}
-            <div className="header-text">
-                <span className="university-name">Purbanchal University</span>
-                <span className="office-name">Office of the Controller of Examinations, Biratnagar</span>
-            </div>
-
-            {/* Right Section: About Button */}
-            <div className="header-right">
-                <button className="header-button">About</button>
-            </div>
-        </div>
-    );
+      {/* Right Section: Navigation Bar */}
+      <nav>
+        <ul className="flex gap-6 list-none m-0 p-0">
+          {["home", "about", "contact", "services"].map((item) => (
+            <li
+              key={item}
+              onClick={() => setActiveNav(item)}
+              className={`cursor-pointer font-medium border-b-2 transition-all duration-300 ${
+                activeNav === item
+                  ? "text-sky-400 border-sky-400"
+                  : "border-transparent hover:text-sky-400"
+              }`}
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+  );
 };
 
 export default Header;

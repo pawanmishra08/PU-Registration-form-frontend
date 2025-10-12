@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import "./students_registration.css"; // Add CSS styles here
+import "./students_registration.css";
 
 const StudentsRegistration = () => {
   const [formData, setFormData] = useState({

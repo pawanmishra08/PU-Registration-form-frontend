@@ -1,73 +1,34 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import img1 from '../images/pu.jpg';
 import { useNavigate } from "react-router-dom";
-import "./Home.css";
+// import StudentsRegistration from "../pages/StudentsRegistration";
 
-const Home = () => {
-  const deadline = new Date("2025-09-02T23:59:59").getTime();
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+// const navigate = useNavigate();
+
+const Home: React.FC = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const diff = deadline - now;
-
-      if (diff > 0) {
-        setTimeLeft({
-          days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((diff / (1000 * 60)) % 60),
-          seconds: Math.floor((diff / 1000) % 60),
-        });
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        clearInterval(timer);
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <div className="home-container">
-      <h1 className="exam-title">IT Entrance Examination 2082</h1>
-      <p className="exam-description">
-        You can register for Entrance Examination after clicking{" "}
-        <strong>Start Registration</strong> button below. <br />
-        Before starting registration you should complete Online Banking Payment
-        by clicking <strong>Online Payment</strong> button below.
-      </p>
-      <p><strong>Candidates must pay before registration.</strong></p>
+    <div
+      className="relative h-screen w-full bg-cover bg-center flex flex-col items-center justify-center"
+      style={{ backgroundImage: `url(${img1})` }}
+    >
 
-      <div className="button-group">
-        <button
-         className="primary-btn"
-         onClick={() => navigate("/students_registration")}
-         >Start Registration
-         </button>
+      {/* Text Content */}
+      <div className="relative z-10 text-center text-white px-4">
+        <h2 className="text-3xl md:text-5xl font-bold drop-shadow-lg">
+          Welcome to Purbanchal University
+        </h2>
+        <p className="text-lg md:text-2xl mt-4 drop-shadow-md">
+          Office of the Controller of Examinations, Biratnagar
+        </p>
 
-        <button
-          className="secondary-btn"
-          onClick={() => navigate("/onlinepayment")}
-        >
-          Online Payment
+         <button
+          onClick= {() => navigate("/Register")}
+          className="mt-8 bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300">
+          Register Now
         </button>
-      </div>
-
-      <div className="countdown">
-        <h3>
-          Time Left for Registration:{" "}
-          <span>
-            {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m{" "}
-            {timeLeft.seconds}s
-          </span>
-        </h3>
       </div>
     </div>
   );
