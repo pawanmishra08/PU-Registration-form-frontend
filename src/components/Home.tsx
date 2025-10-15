@@ -1,9 +1,6 @@
 import React from "react";
 import img1 from '../images/pu.jpg';
 import { useNavigate } from "react-router-dom";
-// import StudentsRegistration from "../pages/StudentsRegistration";
-
-// const navigate = useNavigate();
 
 const Home: React.FC = () => {
 

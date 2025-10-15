@@ -1,175 +1,101 @@
-// import { BookOpen, Building, CalendarDays, GraduationCap, NotebookText, User, UserPlus } from "lucide-react";
-// import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
+import {
+  Contact,
+  Layers,
+  GraduationCap,
+  CreditCard,
+  UserPlus,
+  KeyRound,
+} from "lucide-react";
 
-// export default function Sidebar() {
-//     return (
-//         <div
-//             className="sidebar"
-//             style={{
-//                 backgroundColor: "rgb(12, 190, 36)",
-//                 width: "250px",
-//                 minHeight: "100vh",
-//                 padding: "20px",
-//                 boxSizing: "border-box",
-//             }}
-//         >
-//             <div
-//                 style={{
-//                     display: "flex",
-//                     flexDirection: "column",
-//                     height: 80,
-//                     alignItems: "center",
-//                     justifyContent: "center",
-//                     marginBottom: "20px",
-//                 }}
-//             >
-//                 <p
-//                     style={{
-//                         fontSize: "24px",
-//                         fontWeight: "bold",
-//                         letterSpacing: "1px",
-//                         color: "#fff",
-//                         textDecoration: "underline",
-//                     }}
-//                 >
-//                     Registration Form
-//                 </p>
-//             </div>
-//             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-//                 <li style={{ marginBottom: "15px" }}>
-//                     <NavLink
-//                         to="/Students"
-//                         className={({ isActive }) => isActive ? "active-link" : "nav-link"}
-//                         style={{
-//                             display: "flex",
-//                             alignItems: "center",
-//                             gap: "10px",
-//                             color: "white",
-//                             fontSize: "18px",
-//                             padding: "10px",
-//                             textDecoration: "none",
-//                             borderRadius: "8px",
-//                         }}
-//                     >
-//                         <User size={20} />
-//                         Student Details
-//                     </NavLink>
-//                 </li>
-//                                 <li style={{ marginBottom: "15px" }}>
-//                     <NavLink
-//                         to="/Registration"
-//                         className={({ isActive }) => isActive ? "active-link" : "nav-link"}
-//                         style={{
-//                             display: "flex",
-//                             alignItems: "center",
-//                             gap: "10px",
-//                             color: "white",
-//                             fontSize: "18px",
-//                             padding: "10px",
-//                             textDecoration: "none",
-//                             borderRadius: "8px",
-//                         }}
-//                     >
-//                         <UserPlus size={20} />
-//                         Registration
-//                     </NavLink>
-//                 </li>
-//                 <li style={{ marginBottom: "15px" }}>
-//                     <NavLink
-//                         to="/Department"
-//                         className={({ isActive }) => isActive ? "active-link" : "nav-link"}
-//                         style={{
-//                             display: "flex",
-//                             alignItems: "center",
-//                             gap: "10px",
-//                             color: "white",
-//                             fontSize: "18px",
-//                             padding: "10px",
-//                             textDecoration: "none",
-//                             borderRadius: "8px",
-//                         }}
-//                     >
-//                         <Building size={20} />
-//                         Department
-//                     </NavLink>
-//                 </li>
-//                 <li style={{ marginBottom: "15px" }}>
-//                     <NavLink
-//                         to="/Program"
-//                         className={({ isActive }) => isActive ? "active-link" : "nav-link"}
-//                         style={{
-//                             display: "flex",
-//                             alignItems: "center",
-//                             gap: "10px",
-//                             color: "white",
-//                             fontSize: "18px",
-//                             padding: "10px",
-//                             textDecoration: "none",
-//                             borderRadius: "8px",
-//                         }}
-//                     >
-//                         <GraduationCap size={20} />
-//                         Program
-//                     </NavLink>
-//                 </li>
-//                 <li style={{ marginBottom: "15px" }}>
-//                     <NavLink
-//                         to="/Faculty"
-//                         className={({ isActive }) => isActive ? "active-link" : "nav-link"}
-//                         style={{
-//                             display: "flex",
-//                             alignItems: "center",
-//                             gap: "10px",
-//                             color: "white",
-//                             fontSize: "18px",
-//                             padding: "10px",
-//                             textDecoration: "none",
-//                             borderRadius: "8px",
-//                         }}
-//                     >
-//                         <BookOpen size={20} />
-//                         Faculty
-//                     </NavLink>
-//                 </li>
-//                 <li style={{ marginBottom: "15px" }}>
-//                     <NavLink
-//                         to="/Course"
-//                         className={({ isActive }) => isActive ? "active-link" : "nav-link"}
-//                         style={{
-//                             display: "flex",
-//                             alignItems: "center",
-//                             gap: "10px",
-//                             color: "white",
-//                             fontSize: "18px",
-//                             padding: "10px",
-//                             textDecoration: "none",
-//                             borderRadius: "8px",
-//                         }}
-//                     >
-//                         <NotebookText size={20} />
-//                         Course
-//                     </NavLink>
-//                 </li>
-//                 <li style={{ marginBottom: "15px" }}>
-//                     <NavLink
-//                         to="/Semester"
-//                         className={({ isActive }) => isActive ? "active-link" : "nav-link"}
-//                         style={{
-//                             display: "flex",
-//                             alignItems: "center",
-//                             gap: "10px",
-//                             color: "white",
-//                             fontSize: "18px",
-//                             padding: "10px",
-//                             textDecoration: "none",
-//                             borderRadius: "8px",
-//                         }}
-//                     >
-//                         <CalendarDays size={20} />
-//                         Semester
-//                     </NavLink>
-//                 </li>
-//             </ul>
-//         </div>
-//     );
-// }
+export default function Sidebar() {
+  const linkClass =
+    "flex items-center gap-2 text-white text-lg p-2 rounded-lg transition-all duration-200 hover:bg-green-700";
+  const activeClass = "bg-green-800";
+
+  return (
+    <div className="bg-green-600 w-[250px] min-h-screen p-5 box-border">
+      {/* Header */}
+      <div className="flex flex-col h-20 items-center justify-center mb-5">
+        <p className="text-2xl font-bold tracking-wide text-white underline">
+          Registration Form
+        </p>
+      </div>
+
+      {/* Nav Links */}
+      <ul className="list-none p-0 m-0 space-y-3">
+        <li>
+          <NavLink
+            to="/StudentsRegistration/PersonalInformation"
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeClass : ""}`
+            }
+          >
+            <Contact size={20} />
+            Personal Information
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/StudentsRegistration/Program"
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeClass : ""}`
+            }
+          >
+            <Layers size={20} />
+            Program
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/StudentsRegistration/AcademicInformation"
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeClass : ""}`
+            }
+          >
+            <GraduationCap size={20} />
+            Academic Information
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/StudentsRegistration/PaymentVoucher"
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeClass : ""}`
+            }
+          >
+            <CreditCard size={20} />
+            Payment / Voucher Information
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/StudentsRegistration/GuardianInformation"
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeClass : ""}`
+            }
+          >
+            <UserPlus size={20} />
+            Guardian Information
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/Login"
+            className={({ isActive }) =>
+              `${linkClass} ${isActive ? activeClass : ""}`
+            }
+          >
+            <KeyRound size={20} />
+            Login
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  );
+}
