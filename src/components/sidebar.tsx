@@ -17,7 +17,7 @@ export default function Sidebar() {
     <div className="bg-green-600 w-[250px] min-h-screen p-5 box-border">
       {/* Header */}
       <div className="flex flex-col h-20 items-center justify-center mb-5">
-        <p className="text-2xl font-bold tracking-wide text-white underline">
+        <p className="text font-bold tracking-wide text-white underline">
           Registration Form
         </p>
       </div>

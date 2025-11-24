@@ -23,7 +23,7 @@ const Home: React.FC = () => {
 
          <button
           onClick= {() => navigate("/Register")}
-          className="mt-8 bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300">
+          className="mt-8 bg-black hover:bg-gray-800 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300">
           Register Now
         </button>
       </div>
