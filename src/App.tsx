@@ -13,7 +13,7 @@ import Voucher from "./pages/StudentsRegistration/voucher";
 
 import "./index.css";
 
-function App() {
+function App()  {
   return (
     <Routes>
       <Route path="/" element={<Applayout />} />
