@@ -14,7 +14,7 @@ export default function Sidebar() {
   const activeClass = "bg-green-800";
 
   return (
-    <div className="bg-green-600 w-[250px] min-h-screen p-5 box-border">
+    <div className="bg-blue-600 w-[250px] min-h-screen p-5 box-border">
       {/* Header */}
       <div className="flex flex-col h-20 items-center justify-center mb-5">
         <p className="text font-bold tracking-wide text-white underline">
@@ -62,13 +62,13 @@ export default function Sidebar() {
 
         <li>
           <NavLink
-            to="/StudentsRegistration/PaymentVoucher"
+            to="/StudentsRegistration/Voucher"
             className={({ isActive }) =>
               `${linkClass} ${isActive ? activeClass : ""}`
             }
           >
             <CreditCard size={20} />
-            Payment / Voucher Information
+            Payment / Voucher
           </NavLink>
         </li>
 

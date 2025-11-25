@@ -8,8 +8,8 @@ import Register from "./components/Register";
 import PersonalInformation from "./pages/StudentsRegistration/personalInformation";
 import Program from "./pages/StudentsRegistration/program";
 import AcademicInformation from "./pages/StudentsRegistration/AcademicInformation";
-// import GuardianInformation from "./pages/StudentsRegistration/GuardianInformation";
-// import PaymentVoucher from "./pages/StudentsRegistration/PaymentVoucher";
+import GuardianInformation from "./pages/StudentsRegistration/GuardianInformation";
+import Voucher from "./pages/StudentsRegistration/voucher";
 
 import "./index.css";
 
@@ -27,8 +27,8 @@ function App() {
         <Route path="PersonalInformation" element={<PersonalInformation />} />
         <Route path="Program" element={<Program />} />
         <Route path="AcademicInformation" element={<AcademicInformation />} />
-        {/* <Route path="GuardianInformation" element={<GuardianInformation />} />
-        <Route path="PaymentVoucher" element={<PaymentVoucher />} /> */}
+        <Route path="GuardianInformation" element={<GuardianInformation />} />
+        <Route path="Voucher" element={<Voucher />} />
       </Route>
     </Routes>
   );

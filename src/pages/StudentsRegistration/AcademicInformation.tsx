@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Upload } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const AcademicInformation: React.FC = () => {
   const [hasDiploma, setHasDiploma] = useState("No");
+  const [hasQuota, setHasQuota] = useState("No");
 
   const [formData, setFormData] = useState({
     seeMarks: "",
@@ -14,6 +16,7 @@ const AcademicInformation: React.FC = () => {
     diplomaMarks: "",
     diplomaBoard: "",
     diplomaYear: "",
+    quotaType: "",
   });
 
   const [files, setFiles] = useState<Record<string, File | null>>({
@@ -23,7 +26,16 @@ const AcademicInformation: React.FC = () => {
     plus2Character: null,
     diplomaMarksheet: null,
     diplomaCharacter: null,
+    Quota: null,
+
+    //  ADDED (dynamic quota uploads)
+    madheshiDoc: null,
+    dalitDoc: null,
+    janjatiDoc: null,
+    apangDoc: null,
   });
+
+  const navigate = useNavigate();
 
   const handleInput = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -44,6 +56,24 @@ const AcademicInformation: React.FC = () => {
     }
 
     setFiles({ ...files, [name]: file });
+  };
+
+  //  ADDED (Quota name mapper)
+  const getQuotaLabel = (type: string) => {
+    switch (type) {
+      case "madheshi":
+        return "मधेशी";
+      case "dalit":
+        return "दलित";
+      case "janjati":
+        return "जनजाति";
+      case "apang":
+        return "अपांग";
+        case "others":
+          return "अन्य"
+      default:
+        return "";
+    }
   };
 
   const UploadCard = ({
@@ -91,6 +121,7 @@ const AcademicInformation: React.FC = () => {
     alert("Academic information saved!");
   };
 
+
   return (
     <div className="max-w-4xl mx-auto p-6 mt-10 bg-white shadow-lg rounded-2xl">
       <h2 className="text-2xl font-bold text-center text-blue-700 mb-6">
@@ -134,12 +165,12 @@ const AcademicInformation: React.FC = () => {
 
           {/* Upload Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <UploadCard label="SEE Marksheet" name="seeMarksheet" required />
             <UploadCard
-              label="SEE Marksheet"
-              name="seeMarksheet"
+              label="SEE Character Certificate"
+              name="seeCharacter"
               required
             />
-            <UploadCard label="SEE Character Certificate" name="seeCharacter" required />
           </div>
         </section>
 
@@ -189,9 +220,7 @@ const AcademicInformation: React.FC = () => {
 
         {/* ---------------- DIPLOMA OPTIONAL ---------------- */}
         <section>
-          <h3 className="text-xl font-semibold mb-2">
-            Diploma (Optional)
-          </h3>
+          <h3 className="text-xl font-semibold mb-2">Diploma (Optional)</h3>
 
           <select
             value={hasDiploma}
@@ -250,9 +279,64 @@ const AcademicInformation: React.FC = () => {
           )}
         </section>
 
+        {/* ---------------- QUOTA CERTIFICATE OPTIONAL ---------------- */}
+        <section>
+          <h3 className="text-xl font-semibold mb-2">
+            For Reservation (Quota certificate if applicable)
+          </h3>
+
+          <select
+            value={hasQuota}
+            onChange={(e) => setHasQuota(e.target.value)}
+            className="input-field w-40"
+          >
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+
+          {hasQuota === "Yes" && (
+            <>
+              {/*  ADDED → Quota Selection Dropdown */}
+              <div className="mt-4">
+                <label className="block font-medium mb-1">
+                  Select Quota Type (कोटा छान्नुहोस्)
+                </label>
+
+                <select
+                  name="quotaType"
+                  value={formData.quotaType}
+                  onChange={handleInput}
+                  required
+                  className="input-field"
+                >
+                  <option value="">-- छान्नुहोस् --</option>
+                  <option value="madheshi">मधेशी</option>
+                  <option value="dalit">दलित</option>
+                  <option value="janjati">जनजाति</option>
+                  <option value="apang">अपांग</option>
+                </select>
+              </div>
+
+              {/*  ADDED → Dynamic Upload Section */}
+              {formData.quotaType && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                  <UploadCard
+                    label={`${getQuotaLabel(
+                      formData.quotaType
+                    )} प्रमाणपत्र (Certificate)`}
+                    name={`${formData.quotaType}Doc`}
+                    required
+                  />
+                </div>
+              )}
+            </>
+          )}
+        </section>
+
         {/* Submit */}
         <div className="text-center">
           <button
+          onClick={() => navigate("/StudentsRegistration/Voucher")}
             type="submit"
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg shadow"
           >
