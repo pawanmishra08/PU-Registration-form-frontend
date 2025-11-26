@@ -5,7 +5,6 @@ import {
   GraduationCap,
   CreditCard,
   UserPlus,
-  KeyRound,
 } from "lucide-react";
 
 export default function Sidebar() {
@@ -81,18 +80,6 @@ export default function Sidebar() {
           >
             <UserPlus size={20} />
             Guardian Information
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink
-            to="/Login"
-            className={({ isActive }) =>
-              `${linkClass} ${isActive ? activeClass : ""}`
-            }
-          >
-            <KeyRound size={20} />
-            Login
           </NavLink>
         </li>
       </ul>

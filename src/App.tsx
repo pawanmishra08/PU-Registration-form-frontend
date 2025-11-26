@@ -2,7 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import Applayout from "./pages/applayout";
 import StudentsRegistration from "./pages/StudentsRegistration";
 import OnlinePayment from "./components/onlinepayment";
-import Register from "./components/Register";
+import Apply from "./components/Apply";
+import Login from "./components/login";
+import About from "./components/About";
+import Services from "./components/Services";
 
 // Registration Step Pages
 import PersonalInformation from "./pages/StudentsRegistration/personalInformation";
@@ -17,8 +20,11 @@ function App()  {
   return (
     <Routes>
       <Route path="/" element={<Applayout />} />
-      <Route path="/Register" element={<Register />} />
+      <Route path="/Apply" element={<Apply />} />
       <Route path="/Onlinepayment" element={<OnlinePayment />} />
+      <Route path="/About" element={<About />} />
+      <Route path="/Services" element={<Services />} />
+      <Route path="/Login" element={<Login />} />
 
       <Route path="/StudentsRegistration" element={<StudentsRegistration />}>
         <Route index element={<PersonalInformation />} />
