@@ -6,6 +6,7 @@ import Apply from "./components/Apply";
 import Login from "./components/login";
 import About from "./components/About";
 import Services from "./components/Services";
+import Contact from "./components/Contact"
 
 // Registration Step Pages
 import PersonalInformation from "./pages/StudentsRegistration/personalInformation";
@@ -24,6 +25,7 @@ function App()  {
       <Route path="/Onlinepayment" element={<OnlinePayment />} />
       <Route path="/About" element={<About />} />
       <Route path="/Services" element={<Services />} />
+      <Route path="/Contact" element={<Contact />} />
       <Route path="/Login" element={<Login />} />
 
       <Route path="/StudentsRegistration" element={<StudentsRegistration />}>

@@ -3,6 +3,7 @@ import img1 from '../images/pu.jpg';
 import { useNavigate } from "react-router-dom";
 import About from "./About";
 import Services from "./Services";
+import Contact from "./Contact";
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -32,17 +33,24 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* About Section */}
-      <div className="w-full flex justify-between px-8 mt-10">
-      <div className="w-full flex justify-start px-8 mt-10">
-        <About />
-      </div>
+     <div className="w-full px-8 mt-10">
+  {/* About + Services in a row */}
+  <div className="w-full flex flex-col md:flex-row">
+    <div className="w-full md:w-1/2">
+      <About />
+    </div>
+    <div className="w-full md:w-1/2">
+      <Services />
+    </div>
+  </div>
 
-      {/* Services Section */}
-      <div className="mt-10 mb-20">
-        <Services />
-      </div>
-      </div>
+  {/* Contact Section - full width */}
+  <div className="w-full h-[300px] bg-black items-center justify-center">
+      <Contact />
+
+  </div>
+</div>
+
 
     </div>
   );
